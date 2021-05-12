@@ -13,15 +13,17 @@ public class Feed {
     final String pubDate;
 
     final List<FeedMessage> entries = new ArrayList<FeedMessage>();
+    List<FeedMessage> oldEntries = new ArrayList<>();
 
     public Feed(String title, String link, String description, String language,
-                String copyright, String pubDate) {
+                String copyright, String pubDate, List<FeedMessage> oldEntries) {
         this.title = title;
         this.link = link;
         this.description = description;
         this.language = language;
         this.copyright = copyright;
         this.pubDate = pubDate;
+        this.oldEntries = oldEntries;
     }
 
     public Feed(String title, String link) {
@@ -31,6 +33,19 @@ public class Feed {
         this.language = "";
         this.copyright = "";
         this.pubDate = "";
+    }
+
+    public boolean feedExistMessage(FeedMessage feedMessage){
+        for(var feedMsg : this.oldEntries){
+            if(feedMsg.title.equals(feedMessage.title) && feedMsg.description.equals(feedMessage.description) && feedMsg.link.equals(feedMessage.link) && feedMsg.author.equals(feedMessage.author) && feedMsg.guid.equals(feedMessage.guid)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void addOldEntries(FeedMessage feedMessage){
+        oldEntries.add(feedMessage);
     }
 
     public List<FeedMessage> getMessages() {

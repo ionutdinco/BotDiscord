@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -15,7 +16,7 @@ import javax.xml.stream.events.XMLEvent;
 //import de.vogella.rss.model.FeedMessage;
 
 public class RSSFeedParser {
-    static final String TITLE = "entry";
+    static final String TITLE = "title";
     static final String DESCRIPTION = "description";
     static final String CHANNEL = "channel";
     static final String LANGUAGE = "language";
@@ -27,10 +28,12 @@ public class RSSFeedParser {
     static final String GUID = "guid";
 
     final URL url;
+    List<FeedMessage> oldEntries;
 
-    public RSSFeedParser(String feedUrl) {
+    public RSSFeedParser(String feedUrl, List<FeedMessage> oldEntries) {
         try {
             this.url = new URL(feedUrl);
+            this.oldEntries = oldEntries;
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -58,6 +61,13 @@ public class RSSFeedParser {
             // read the XML document
             while (eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
+
+                //daca item-ul nu se afla printre alea care exista, mergem in continuare, daca nu sarim peste
+
+
+
+
+
                 if (event.isStartElement()) {
                     String localPart = event.asStartElement().getName()
                             .getLocalPart();
@@ -66,9 +76,9 @@ public class RSSFeedParser {
                             if (isFeedHeader) {
                                 isFeedHeader = false;
                                 feed = new Feed(title, link, description, language,
-                                        copyright, pubdate);
+                                        copyright, pubdate,oldEntries);
                             }
-                            event = eventReader.nextEvent();
+
                             break;
                         case TITLE:
                             title = getCharacterData(event, eventReader);
@@ -103,8 +113,12 @@ public class RSSFeedParser {
                         message.setGuid(guid);
                         message.setLink(link);
                         message.setTitle(title);
-                        feed.getMessages().add(message);
-                        event = eventReader.nextEvent();
+                        if(!feed.feedExistMessage(message)) {
+                            feed.getMessages().add(message);
+                            feed.addOldEntries(message);
+                        }
+
+
                         continue;
                     }
                 }
