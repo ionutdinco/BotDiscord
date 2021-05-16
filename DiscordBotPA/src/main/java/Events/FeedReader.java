@@ -14,9 +14,9 @@ public class FeedReader {
     public List<String> getNewFeed() {
         int i = 1;
         RSSFeedParser parser = new RSSFeedParser(
-//                                          "https://www.reddit.com/r/java.rss");
-                "https://developer-tech.com/feed/", oldEntries);
-//                                          "https:https://www.reddit.com/r/java.rss                                          "https://www.vogella.com/article.rss");
+                                         "https://gadgets.ndtv.com/rss.xml",oldEntries);
+                //"https://developer-tech.com/feed/", oldEntries);
+//                                          "https:https://www.reddit.com/r/java.rss"                                          "https://www.vogella.com/article.rss");
         Feed feed = parser.readFeed();
         System.out.println(feed);
 

@@ -2,8 +2,10 @@ package Utils;
 
 import Events.Communication;
 import Events.FeedReader;
+import WebSearch.Htmlresults;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MessageChecker {
@@ -13,6 +15,7 @@ public class MessageChecker {
     public String response;
     public List<String> result = null;
     public FeedReader feedReader = new FeedReader();
+    Htmlresults results=new Htmlresults();
 
 
     public MessageChecker(String prefix) {
@@ -39,7 +42,8 @@ public class MessageChecker {
             return true;
         }
         if (message1[0].equalsIgnoreCase(prefix)) {
-            result = Communication.searchKey(message1);
+            //result = Communication.searchKey(message1);
+            result= Collections.singletonList(this.results.executeSearch(message));
             return true;
         }
         result.add("Unknow comment!!!");
