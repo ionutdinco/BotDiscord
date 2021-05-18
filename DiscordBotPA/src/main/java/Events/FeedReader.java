@@ -1,17 +1,30 @@
-package Events;
+package events;
 
-import RSS.Feed;
-import RSS.FeedMessage;
-import RSS.RSSFeedParser;
+import rss.Feed;
+import rss.FeedMessage;
+import rss.RSSFeedParser;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * `FeedReader` class is responsible for managing all feeds
+ */
 public class FeedReader {
 
+    /**
+     * Feeds that has been readed
+     */
     public static List<FeedMessage> oldEntries;
+    /**
+     * List of RSSFeedParser that contains the urls
+     */
     private List<RSSFeedParser> parsers;
 
+    /**
+     * Constructor without parameters - initialize atributes
+     */
     public FeedReader() {
         parsers = new ArrayList<>();
         oldEntries = new ArrayList<>();
@@ -23,6 +36,13 @@ public class FeedReader {
         );
     }
 
+    /**
+     * Creates a object of type `Feed` and call method `readFeed` from `RSSFeedParse` with parameter
+     * of `0` meanning not all messages, and we get only 1 new feed. It is added to result list, as
+     * a string using method `toString` and added to `oldEntries` (marked as read)
+     *
+     * @return a List of String  that represent some feeds
+     */
     public List<String> getNewFeed() {
 
 
@@ -46,10 +66,25 @@ public class FeedReader {
         return result;
     }
 
+
+    /**
+     * Try to add the url to the listened feeds and throws an exception if can't
+     *
+     * @param url a String that represent the url to the feed, that is get through a "GET" request to the url
+     * @throws Exception - can't load url
+     */
     public void addFeed(String url) throws Exception {
         parsers.add(new RSSFeedParser(url));
     }
 
+
+    /**
+     * Or parse all feeds and add them to `oldEntries`(mark as read)
+     * Or get only a feed, and add to `oldEntries` olny that entire feed
+     *
+     * @param allFeeds type int, represent that we add to `oldEntries` all the feeds or not
+     * @param index    type int, represent the position in `parsers` of feed
+     */
     public void markAsRead(int allFeeds, int index) {
         Feed feed;
 
@@ -62,7 +97,7 @@ public class FeedReader {
                     }
                 }
             }
-        else if(allFeeds == 0){
+        else if (allFeeds == 0) {
             feed = parsers.get(index).readFeed(1);
             if (feed != null) {
                 if (!feed.getMessages().isEmpty()) {
@@ -74,9 +109,16 @@ public class FeedReader {
     }
 
 
+    /**
+     * Remove a link from listened feeds by a string as general as possible,
+     * and return what link has been removed
+     *
+     * @param s type String, `value`
+     * @return returns the url's feed in succes case, and if not, the message
+     */
     public String removeFeed(String s) {
-        for(var parser: parsers){
-            if(parser.getUrl().contains(s)) {
+        for (var parser : parsers) {
+            if (parser.getUrl().contains(s)) {
                 parsers.remove(parser);
                 return "Feed with url : `" + parser.getUrl() + "` removed!";
             }
@@ -84,13 +126,3 @@ public class FeedReader {
         return "Feed url not found!";
     }
 }
-
-
-//    RSSFeedParser parser = parsers.get(0);
-//    Feed feed = parser.readFeed();
-//
-//    List<String> result = new ArrayList<>();
-//
-//        for (FeedMessage message : feed.getMessages()) {
-//                result.add(message.toString());
-//                }

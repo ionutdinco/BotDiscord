@@ -1,10 +1,13 @@
-package RSS;
+package rss;
 
-import Events.FeedReader;
+import events.FeedReader;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Feed class represent a whole feed, with header and all items
+ */
 public class Feed {
 
     final String title;
@@ -14,8 +17,21 @@ public class Feed {
     final String copyright;
     final String pubDate;
 
+    /**
+     * entries represent all items
+     */
     final List<FeedMessage> entries = new ArrayList<FeedMessage>();
 
+
+    /**
+     * parameterized constructor
+     * @param title type String
+     * @param link type String
+     * @param description type String
+     * @param language type String
+     * @param copyright type String
+     * @param pubDate type String
+     */
     public Feed(String title, String link, String description, String language,
                 String copyright, String pubDate) {
         this.title = title;
@@ -35,6 +51,12 @@ public class Feed {
         this.pubDate = "";
     }
 
+
+    /**
+     * Verifies if a feed message has been already read
+     * @param feedMessage type FeedMessage, represent the actual message
+     * @return true if has been read false if hasn't
+     */
     public boolean feedExistMessage(FeedMessage feedMessage){
         if(FeedReader.oldEntries == null)
             return false;
@@ -50,6 +72,10 @@ public class Feed {
         FeedReader.oldEntries.add(feedMessage);
     }
 
+    /**
+     * getter
+     * @return the list of messages from this feed
+     */
     public List<FeedMessage> getMessages() {
         return entries;
     }

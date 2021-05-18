@@ -1,21 +1,35 @@
-package WebSearch;
+package webSearch;
 
 import java.io.*;
 import java.net.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
+/**
+ *Class for representing a search engine.
+ */
 public class SearchEngine {
-
+    /**
+     * Google crawler.
+     */
     private final String userAgent = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)";
+    /**
+     * The final Url for searching.
+     */
     private String useQuerry;
 
+    /**
+     * Function to build the Url, using the user input phrase.
+     * @param querry tipul String
+     */
     public void searchQuerry(String querry) {
         String searchQuerry = URLEncoder.encode(querry.trim(), StandardCharsets.UTF_8);
         this.useQuerry = "https://www.google.com/search?q=" + searchQuerry + "&num=6";
     }
 
+    /**
+     * Function to estabilish a connection and search for an information on google search. Gets the html code as a stream.
+     * @param querry type String
+     */
     public String search(String querry) {
         URL url = null;
         try {
@@ -33,6 +47,11 @@ public class SearchEngine {
         return null;
     }
 
+
+    /**
+     * Function to estabilish a connection and make a GET request to an url, in order to abtain the html code as a stream.
+     * @param pageURL type String
+     */
     public String searchOnline(String pageURL){
 
         String result;
@@ -41,15 +60,6 @@ public class SearchEngine {
             url = new URL(pageURL);
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("GET");
-
-            int status=con.getResponseCode();
-//            if ( status == HttpURLConnection.HTTP_MOVED_TEMP
-//                    || status == HttpURLConnection.HTTP_MOVED_PERM) {
-//                String location = con.getHeaderField("Location");
-//                URL newUrl = new URL(location);
-//                con = (HttpURLConnection) newUrl.openConnection();
-//            }
-
             InputStream stream = con.getInputStream();
 
             return getString(stream);
@@ -59,7 +69,10 @@ public class SearchEngine {
       return null;
     }
 
-
+    /**
+     * Function that gets a stream and returns the equivalent string.
+     * @param stream type InputStream
+     */
     private String getString(InputStream stream) throws IOException {
         StringBuilder output = new StringBuilder();
         try (BufferedReader input = new BufferedReader(new InputStreamReader(stream))) {

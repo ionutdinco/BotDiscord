@@ -1,16 +1,19 @@
-package WebSearch;
+package webSearch;
 
 
-import javax.print.DocFlavor;
-import java.awt.*;
-import java.util.*;
 import java.util.List;
-import java.util.stream.Collectors;
 
+/**
+ *  Controller class, responsible for search engine control and parsing of results.
+ */
 public class Htmlresults {
-    private String result;
-    private String output2;
 
+    /**
+     *Function to call the search object's methods and the html parser's methods, in order to obtein the output informations as a string.
+     * Gets the results from the html pages with the most occurrences of the searched words.
+     * @param querry type String.
+     * @return the information found after the search(if there is any) as a String.
+     */
     public String executeSearch(String querry) {
         SearchEngine s = new SearchEngine();
         String result = s.search(querry);
@@ -46,6 +49,10 @@ public class Htmlresults {
         return null;
     }
 
+    /**
+     *Function that processes the output to look better on the Discord.
+     * @param list type List<String>.
+     */
     private String formatList(List<String> list){
         String result = "";
         for(var current: list){

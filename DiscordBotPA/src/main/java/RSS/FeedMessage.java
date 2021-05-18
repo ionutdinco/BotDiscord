@@ -1,5 +1,9 @@
-package RSS;
+package rss;
 
+
+/**
+ * FeedMessage represent a message from a feed
+ */
 public class FeedMessage {
 
     String title;

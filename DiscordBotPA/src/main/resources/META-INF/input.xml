@@ -666,9 +666,9 @@
       <dc:creator>lars.vogel@vogella.com (Lars Vogel)</dc:creator>
     </item>
     <item>
-      <title>RSS feeds with Java - Tutorial</title>
+      <title>rss feeds with Java - Tutorial</title>
       <link>http://www.vogella.com/tutorials/RSSFeed/article.html</link>
-      <description>This tutorial explains how to read and create RSS feeds with     Java. It uses the Stax XML API. Eclipse     is used as the Java IDE and Java7 is used.</description>
+      <description>This tutorial explains how to read and create rss feeds with     Java. It uses the Stax XML API. Eclipse     is used as the Java IDE and Java7 is used.</description>
       <guid isPermaLink="false">http://www.vogella.com/tutorials/RSSFeed/article.html</guid>
       <dc:creator>lars.vogel@vogella.com (Lars Vogel)</dc:creator>
     </item>

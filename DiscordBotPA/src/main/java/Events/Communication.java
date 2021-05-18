@@ -1,14 +1,11 @@
-package Events;
+package events;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import javax.persistence.Entity;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -16,12 +13,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
-
+/**
+ * Communication class is responsible with communication with local json file
+ */
 public class Communication extends ListenerAdapter {
-
+    /**
+     * Searches in local file "data.json" for some words from parameter phrase
+     * @param phrase an array of String that contains some words to look after
+     * @return a List of String that contains informations about words received as a parameter. Can be null too.
+     */
     public static List<String> searchKey(String[] phrase) {
 
         List<String> result = new ArrayList<>();
@@ -55,6 +56,13 @@ public class Communication extends ListenerAdapter {
         return null;
     }
 
+
+    /**
+     * This function takes the `key` parameter and search for it in the file "data.json"
+     * and add `value` to existing informations, then the file is updated.
+     * @param key type String, represent the key after we search
+     * @param value type String, represent the information about the key
+     */
     public static void addInfo(String key,String value){
 
         JSONObject obj = new JSONObject();

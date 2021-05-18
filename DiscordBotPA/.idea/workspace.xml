@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0687f7ff-bf83-4e9b-994b-fe07b675aa59" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Utils/ResultParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Events/FeedReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Events/FeedReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RSS/Feed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RSS/Feed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RSS/RSSFeedParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RSS/RSSFeedParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/MessageChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/MessageChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WebSearch/HtmlParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WebSearch/HtmlParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WebSearch/Htmlresults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WebSearch/Htmlresults.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/WebSearch/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WebSearch/SearchEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RSS/Feed.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RSS/Feed.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/RSS/RSSFeedParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RSS/RSSFeedParser.class" afterDir="false" />
-    </list>
+    <list default="true" id="0687f7ff-bf83-4e9b-994b-fe07b675aa59" name="Default Changelist" comment="" />
     <list id="0ba071e9-481d-476a-b204-6897cad01b89" name="Changes by andre" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +29,32 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/utils/MessageChecker.java">
+      <ranges>
+        <range start1="10" end1="10" start2="10" end2="15" changelist="0ba071e9-481d-476a-b204-6897cad01b89" />
+        <range start1="12" end1="13" start2="17" end2="18" changelist="0ba071e9-481d-476a-b204-6897cad01b89" />
+        <range start1="20" end1="20" start2="25" end2="28" changelist="0ba071e9-481d-476a-b204-6897cad01b89" />
+        <range start1="25" end1="26" start2="33" end2="38" changelist="0ba071e9-481d-476a-b204-6897cad01b89" />
+        <range start1="117" end1="118" start2="129" end2="129" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+        <range start1="127" end1="127" start2="138" end2="143" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/src/main/java/Main.java">
+      <ranges>
+        <range start1="0" end1="0" start2="0" end2="1" changelist="0ba071e9-481d-476a-b204-6897cad01b89" />
+        <range start1="4" end1="5" start2="5" end2="5" changelist="0ba071e9-481d-476a-b204-6897cad01b89" />
+        <range start1="7" end1="7" start2="7" end2="16" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+        <range start1="8" end1="9" start2="17" end2="17" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+        <range start1="11" end1="12" start2="19" end2="19" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+        <range start1="14" end1="15" start2="21" end2="21" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+        <range start1="19" end1="19" start2="25" end2="31" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+        <range start1="20" end1="21" start2="32" end2="33" changelist="0ba071e9-481d-476a-b204-6897cad01b89" />
+        <range start1="23" end1="28" start2="35" end2="37" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+        <range start1="29" end1="40" start2="38" end2="38" changelist="0687f7ff-bf83-4e9b-994b-fe07b675aa59" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectId" id="1sR5uYlUbESnga1DUBEnsiFm8DF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -54,7 +66,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -74,14 +86,17 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="WebSearch" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\BotDiscordPA\BotDiscordPA\DiscordBotPA\src\main\resources" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="FeedReader" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Events.FeedReader" />
+      <option name="MAIN_CLASS_NAME" value="events.FeedReader" />
       <module name="DiscordBotPA" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Events.*" />
+          <option name="PATTERN" value="events.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -90,11 +105,11 @@
       </method>
     </configuration>
     <configuration name="Htmlresults" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="WebSearch.Htmlresults" />
+      <option name="MAIN_CLASS_NAME" value="webSearch.Htmlresults" />
       <module name="DiscordBotPA" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="WebSearch.*" />
+          <option name="PATTERN" value="webSearch.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -118,6 +133,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -161,6 +187,8 @@
       <workItem from="1621266470613" duration="352000" />
       <workItem from="1621268933494" duration="11364000" />
       <workItem from="1621312731668" duration="9078000" />
+      <workItem from="1621339953673" duration="4691000" />
+      <workItem from="1621345470033" duration="14069000" />
     </task>
     <servers />
   </component>
@@ -180,25 +208,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Utils/ResultParser.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Utils/ResultParser.java</url>
-          <line>72</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Utils/ResultParser.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="130" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Utils.MessageChecker" memberName="result" />

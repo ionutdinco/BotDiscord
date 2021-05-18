@@ -1,35 +1,48 @@
-package Utils;
+package utils;
 
-import Events.Communication;
-import Events.FeedReader;
-import WebSearch.Htmlresults;
+import events.Communication;
+import events.FeedReader;
+import webSearch.Htmlresults;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MessageChecker {
 
+/**
+ * MessageChecker class is responsible with getting the request and
+ * redirection to the right functions to get the result
+ */
+public class MessageChecker {
+    /**
+     * the prefix that the server response to
+     */
     public String prefix;
-    public String request;
-    public String response;
     public List<String> result = null;
     public FeedReader feedReader = new FeedReader();
     Htmlresults results = new Htmlresults();
 
 
+    /**
+     * Constructor with given prefix for bot commands
+     */
     public MessageChecker(String prefix) {
         this.prefix = prefix;
         result = new ArrayList<>();
     }
 
-
+    /**
+     * This method is responsible with parsing the command and return that the message is taken by the bot
+     * @param message type String, representing the message from discord channel
+     * @return type boolean, representing that the message has been taken by the bot or not
+     */
     public boolean checkMessage(String message) {
 
         List<String> resultt = new ArrayList<>();
+        String[] info = message.split("\"");
         String[] message1 = message.split("[\\s+?]");
         if (message1[0].equalsIgnoreCase(prefix + "add")) {
-            Communication.addInfo(message1[1], message1[2]);
+            Communication.addInfo(message1[1], info[1]);
             resultt.add("Done!");
             result = resultt;
             return true;
@@ -115,7 +128,6 @@ public class MessageChecker {
     @Override
     public String toString() {
 
-
         List<String> resultt = ResultParser.parse(result);
         String ans = "";
         for (var s : resultt) {
@@ -124,6 +136,11 @@ public class MessageChecker {
         return ans;
     }
 
+    /**
+     * Formats a list of strings.
+     * @param list type List<String>
+     * @return String formatted
+     */
     private String formatList(List<String> list) {
         String result = "";
         for (var current : list) {

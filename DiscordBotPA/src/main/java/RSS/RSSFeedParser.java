@@ -1,10 +1,9 @@
-package RSS;
+package rss;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -12,9 +11,9 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Characters;
 import javax.xml.stream.events.XMLEvent;
 
-//import de.vogella.rss.model.Feed;
-//import de.vogella.rss.model.FeedMessage;
-
+/**
+ * RSSFeedParser represent the parser for a xml feed
+ */
 public class RSSFeedParser {
     static final String TITLE = "title";
     static final String DESCRIPTION = "description";
@@ -27,8 +26,16 @@ public class RSSFeedParser {
     static final String PUB_DATE = "pubDate";
     static final String GUID = "guid";
 
+    /**
+     * url of feed
+     */
     final URL url;
 
+
+    /**
+     *parameterized constructor
+     * @param feedUrl type String, represents the url to the feed
+     */
     public RSSFeedParser(String feedUrl) {
         try {
             this.url = new URL(feedUrl);
@@ -37,6 +44,14 @@ public class RSSFeedParser {
         }
     }
 
+
+    /**
+     * Parse the xml file and after he passes the header and first item tag and the message has not been
+     * read yet, check the `allMessages` parameter and if is 0 than is stops there and return the feed
+     * with only 1 message in it. Otherwise, it read all the messages.
+     * @param allMessages type int, represent if it will read all the messages from feed or not
+     * @return type Feed, the feed that has been read. It can be null.
+     */
     public Feed readFeed(int allMessages) {
         Feed feed = null;
         try {
@@ -128,6 +143,14 @@ public class RSSFeedParser {
         return feed;
     }
 
+
+    /**
+     * Get the string from an event
+     * @param event type XMLEvent, the event
+     * @param eventReader type XMLEventReader, a reader for event
+     * @return the parsed string from event
+     * @throws XMLStreamException
+     */
     private String getCharacterData(XMLEvent event, XMLEventReader eventReader)
             throws XMLStreamException {
         String result = "";
@@ -138,6 +161,11 @@ public class RSSFeedParser {
         return result;
     }
 
+
+    /**
+     * Make the "GET" request to the url
+     * @return type InputStream, representing the whole xml
+     */
     private InputStream read() {
         try {
             return url.openStream();
