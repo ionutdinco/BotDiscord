@@ -59,7 +59,7 @@ public class HtmlParser {
 
     public static List<String> parsePhrase(String input){
         try {
-           List<String> stopwords = Files.readAllLines(Paths.get("D:\\BotDiscordPA\\BotDiscordPA\\DiscordBotPA\\src\\main\\java\\WebSearch\\engStopWords\\engStopWords.txt"));
+           List<String> stopwords = Files.readAllLines(Paths.get("src\\main\\java\\WebSearch\\engStopWords\\engStopWords.txt"));
             ArrayList<String> allWords =
                     Stream.of(input.toLowerCase().split(" "))
                             .collect(Collectors.toCollection(ArrayList<String>::new));

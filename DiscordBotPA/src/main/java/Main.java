@@ -1,8 +1,8 @@
 import Events.Communication;
 import Events.FeedReader;
-import Events.RSSFeed;
 import RSS.FeedMessage;
 import Utils.MessageChecker;
+import Utils.ResultParser;
 import discord4j.core.GatewayDiscordClient;
 import discord4j.core.event.domain.message.MessageCreateEvent;
 import discord4j.core.object.entity.Message;
@@ -17,7 +17,6 @@ public class Main {
     public static String prefix = "~";
 
 
-
     public static void main(String[] args) {
 
 //        DiscordClientBuilder builder = new DiscordClientBuilder();
@@ -26,12 +25,17 @@ public class Main {
 
         MessageChecker messageChecker = new MessageChecker(prefix);
 
-        client.getEventDispatcher().on(MessageCreateEvent.class)
+        var channelFlux = client.getEventDispatcher().on(MessageCreateEvent.class)
                 .map(MessageCreateEvent::getMessage)
                 .filter(message -> messageChecker.checkMessage(message.getContent()))
-                .flatMap(Message::getChannel)
-                .flatMap(messageChannel -> messageChannel.createMessage(messageChecker.getResult().toString()))
-                .subscribe();
+                .flatMap(Message::getChannel);
+
+
+            channelFlux.flatMap(messageChannel -> messageChannel.createMessage(messageChecker.toString()))
+                    .subscribe();
+
+//                .flatMap(messageChannel -> messageChannel.createMessage(messageChecker.getResult().toString()))
+
 
 //        client.getEventDispatcher().on(MessageCreateEvent.class)
 //                .map(MessageCreateEvent::getMessage)
@@ -39,7 +43,6 @@ public class Main {
 //                .flatMap(Message::getChannel)
 //                .flatMap(messageChannel -> messageChannel.createMessage("hai lasa-ma"))
 //                .subscribe();
-
 
 
         client.onDisconnect().block();

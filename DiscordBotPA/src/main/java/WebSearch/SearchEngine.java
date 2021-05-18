@@ -43,12 +43,12 @@ public class SearchEngine {
             con.setRequestMethod("GET");
 
             int status=con.getResponseCode();
-            if ( status == HttpURLConnection.HTTP_MOVED_TEMP
-                    || status == HttpURLConnection.HTTP_MOVED_PERM) {
-                String location = con.getHeaderField("Location");
-                URL newUrl = new URL(location);
-                con = (HttpURLConnection) newUrl.openConnection();
-            }
+//            if ( status == HttpURLConnection.HTTP_MOVED_TEMP
+//                    || status == HttpURLConnection.HTTP_MOVED_PERM) {
+//                String location = con.getHeaderField("Location");
+//                URL newUrl = new URL(location);
+//                con = (HttpURLConnection) newUrl.openConnection();
+//            }
 
             InputStream stream = con.getInputStream();
 

@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0687f7ff-bf83-4e9b-994b-fe07b675aa59" name="Default Changelist" comment="" />
+    <list default="true" id="0687f7ff-bf83-4e9b-994b-fe07b675aa59" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Utils/ResultParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Events/FeedReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Events/FeedReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RSS/Feed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RSS/Feed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RSS/RSSFeedParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RSS/RSSFeedParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/MessageChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utils/MessageChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WebSearch/HtmlParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WebSearch/HtmlParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WebSearch/Htmlresults.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WebSearch/Htmlresults.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/WebSearch/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/WebSearch/SearchEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RSS/Feed.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RSS/Feed.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RSS/RSSFeedParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RSS/RSSFeedParser.class" afterDir="false" />
+    </list>
     <list id="0ba071e9-481d-476a-b204-6897cad01b89" name="Changes by andre" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +34,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1sR5uYlUbESnga1DUBEnsiFm8DF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -133,6 +155,12 @@
       <workItem from="1621024105828" duration="5322000" />
       <workItem from="1621059030396" duration="33093000" />
       <workItem from="1621171037504" duration="344000" />
+      <workItem from="1621189313171" duration="908000" />
+      <workItem from="1621223157143" duration="30392000" />
+      <workItem from="1621256167838" duration="30000" />
+      <workItem from="1621266470613" duration="352000" />
+      <workItem from="1621268933494" duration="11364000" />
+      <workItem from="1621312731668" duration="9078000" />
     </task>
     <servers />
   </component>
@@ -150,5 +178,31 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Utils/ResultParser.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Utils/ResultParser.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="106" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Utils/ResultParser.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Utils.MessageChecker" memberName="result" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

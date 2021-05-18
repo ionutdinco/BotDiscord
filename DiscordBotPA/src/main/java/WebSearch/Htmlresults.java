@@ -30,10 +30,10 @@ public class Htmlresults {
                 int aux = HtmlParser.containsWords(pTag.toString(), words);
                 if (aux > first) {
                     first = aux;
-                    output1 = pTag.toString();
+                    output1 = formatList(pTag);
                 } else if (aux > secod) {
                     secod = aux;
-                    output2 = pTag.toString();
+                    output2 = formatList(pTag);
                 }
 
             }
@@ -44,5 +44,13 @@ public class Htmlresults {
         }
 
         return null;
+    }
+
+    private String formatList(List<String> list){
+        String result = "";
+        for(var current: list){
+            result += " ```json\n\"" + current + "\" ```";
+        }
+        return result;
     }
 }

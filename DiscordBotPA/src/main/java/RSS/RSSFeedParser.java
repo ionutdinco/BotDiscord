@@ -28,18 +28,16 @@ public class RSSFeedParser {
     static final String GUID = "guid";
 
     final URL url;
-    List<FeedMessage> oldEntries;
 
-    public RSSFeedParser(String feedUrl, List<FeedMessage> oldEntries) {
+    public RSSFeedParser(String feedUrl) {
         try {
             this.url = new URL(feedUrl);
-            this.oldEntries = oldEntries;
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public Feed readFeed() {
+    public Feed readFeed(int allMessages) {
         Feed feed = null;
         try {
             boolean isFeedHeader = true;
@@ -76,7 +74,7 @@ public class RSSFeedParser {
                             if (isFeedHeader) {
                                 isFeedHeader = false;
                                 feed = new Feed(title, link, description, language,
-                                        copyright, pubdate,oldEntries);
+                                        copyright, pubdate);
                             }
 
                             break;
@@ -113,13 +111,14 @@ public class RSSFeedParser {
                         message.setGuid(guid);
                         message.setLink(link);
                         message.setTitle(title);
-                        if(!feed.feedExistMessage(message)) {
-                            feed.getMessages().add(message);
-                            feed.addOldEntries(message);
-                        }
+                        if(feed != null)
+                            if(!feed.feedExistMessage(message)) {
+                                feed.getMessages().add(message);
+                                if(allMessages == 0)
+                                    return feed;
+                            }
 
 
-                        continue;
                     }
                 }
             }
@@ -152,104 +151,8 @@ public class RSSFeedParser {
             }
         }
     }
-}
 
-//public class RSSFeedParser {
-//    static final String TITLE = "title";
-//    static final String ENTRY = "entry";
-//    static final String LINK = "link";
-//    static final String AUTHOR = "author";
-//    static final String ITEM = "item";
-//
-//    final URL url;
-//
-//    public RSSFeedParser(String feedUrl) {
-//        try {
-//            this.url = new URL(feedUrl);
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//
-//    public Feed readFeed() {
-//        Feed feed = null;
-//        try {
-//            boolean isFeedHeader = true;
-//            // Set header values intial to the empty string
-////            String description = "";
-//            String title = "";
-//            String link = "";
-////            String language = "";
-////            String copyright = "";
-//            String author = "";
-////            String pubdate = "";
-////            String guid = "";
-//
-//            // First create a new XMLInputFactory
-//            XMLInputFactory inputFactory = XMLInputFactory.newInstance();
-//            // Setup a new eventReader
-//            InputStream in = read();
-//            XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
-//            // read the XML document
-//            while (eventReader.hasNext()) {
-//                XMLEvent event = eventReader.nextEvent();
-//                if (event.isStartElement()) {
-//                    String localPart = event.asStartElement().getName()
-//                            .getLocalPart();
-//                    switch (localPart) {
-//                        case ENTRY:
-//                            if (isFeedHeader) {
-//                                isFeedHeader = false;
-////                                feed = new Feed(title, link, description, language,
-////                                        copyright, pubdate);
-//                                feed = new Feed(title,link);
-//                            }
-//                            event = eventReader.nextEvent();
-//                            break;
-//                        case TITLE:
-//                            title = getCharacterData(event, eventReader);
-//                            break;
-//                        case LINK:
-//                            link = getCharacterData(event, eventReader);
-//                            break;
-//                        case AUTHOR:
-//                            author = getCharacterData(event, eventReader);
-//                            break;
-//
-//                    }
-//                } else if (event.isEndElement()) {
-//                    if (event.asEndElement().getName().getLocalPart() == (ITEM)) {
-//                        FeedMessage message = new FeedMessage();
-//                        message.setAuthor(author);
-//                        message.setLink(link);
-//                        message.setTitle(title);
-//                        feed.getMessages().add(message);
-//                        event = eventReader.nextEvent();
-//                        continue;
-//                    }
-//                }
-//            }
-//        } catch (XMLStreamException e) {
-//            throw new RuntimeException(e);
-//        }
-//        return feed;
-//    }
-//
-//    private String getCharacterData(XMLEvent event, XMLEventReader eventReader)
-//            throws XMLStreamException {
-//        String result = "";
-//        event = eventReader.nextEvent();
-//        if (event instanceof Characters) {
-//            result = event.asCharacters().getData();
-//        }
-//        return result;
-//    }
-//
-//    private InputStream read() {
-//        try {
-//            return url.openStream();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//}
+    public String getUrl(){
+        return url.toString();
+    }
+}
