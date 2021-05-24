@@ -38,7 +38,7 @@ public class Communication extends ListenerAdapter {
 
                     JSONObject jsonObject = iterator.next();
 
-                    if (jsonObject.get("meta").equals(word)) {
+                    if (jsonObject.get("meta").toString().equalsIgnoreCase(word)) {
                         result.add("\n" + jsonObject.get("data").toString());
                     }
                 }
