@@ -32,7 +32,7 @@ public class AutoFetchRSS extends Thread {
             while (true) {
 
                 try {
-                    sleep(360000);
+                    sleep(3600000/2);
 
                     List<TextChannel> channels = jda.getTextChannelsByName("general", true);
                     for (TextChannel ch : channels) {

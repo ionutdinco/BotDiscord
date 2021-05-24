@@ -100,7 +100,7 @@ public class MessageChecker {
             return true;
         }
         if (message1[0].equalsIgnoreCase(prefix + "help")) {
-            resultt.add("```bash\n-\"~add <key> <value>\"\n- \"~news\"\n- \"~readAllNews\"" +
+            resultt.add("```bash\n- \"~add <key> \"<value>\"\"\n- \"~news\"\n- \"~readAllNews\"" +
                     "\n- \"~readAllNewsFrom <nr crt of feed>\"\n- \"~addRss <link for get request>\"" +
                     "\n- \"~removeRss <specific words>\"\n- \"~ <any question>\" ```");
             result = resultt;
